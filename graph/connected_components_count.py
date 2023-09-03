@@ -4,24 +4,20 @@ def connected_components_count(graph):
   if not graph:
     return count
   all_nodes = set(graph.keys())
-  node1 = all_nodes.pop()
-  visited = {node1}
-  stack = [node1]
-  #while len(visited) != len(graph):    
-  while len(stack)>0:
-    current = stack.pop()
-    visited.add(current)
-    for node in graph[current]:
-      if (node not in visited) and (node not in stack):
-        stack.append(node)
-        pdb.set_trace()
-    print(current)
-    print(stack)
-    print(visited)
-  count+=1      
-  remaining_nodes = all_nodes-visited
-  node1 = remaining_nodes.pop()
-  stack = [node1]
+  visited = set()
+  while len(visited) != len(graph):    
+    remaining_nodes = all_nodes-visited
+    node1 = remaining_nodes.pop()
+    stack = [node1]
+    while len(stack)>0:
+      current = stack.pop()
+      #print(stack)
+      print(current)
+      visited.add(current)
+      for node in graph[current]:
+        if (node not in visited) and (node not in stack):
+          stack.append(node)
+    count+=1      
  
   return count
 
