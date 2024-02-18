@@ -98,6 +98,6 @@ b --> c
 5. Finally, return the maximum distance found.
 
 **Complexity**:
-- Time: O(E) where E is the number of edges in the graph.
-- Space: O(N) where N is the number of nodes in the graph.
+- Time: $O(E)$ where $E$ is the number of edges in the graph.
+- Space: $O(N)$ where $N$ is the number of nodes in the graph.
 
