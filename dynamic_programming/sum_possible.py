@@ -8,34 +8,52 @@ You may reuse numbers of the list as many times as necessary.
 You may assume that the target amount is non-negative.
 """
 
+##############################
+# dynamic programming O(a*n) #
+##############################
+
 def sum_possible(amount, numbers):
-    for n in numbers:
-        possible = recur(amount, n, numbers)
-        if possible:
-            return True 
+    calculated = dict()
+    return _sum_it(amount, numbers, calculated)
 
-    return False 
-
-def recur(remainder, subtrahend, numbers):
+def _sum_it(amount, numbers, calculated):
+    if amount < 0: 
+        return False
     
-    if subtrahend > remainder:
-        return
-    
-    remainder = remainder - subtrahend
-
-    if remainder == 0:
+    if amount == 0:
         return True
     
+    if amount in calculated:
+        return calculated[amount]
     
-
-    return False 
-
+    for n in numbers:
+        if _sum_it(amount-n, numbers, calculated):
+            calculated[amount] = True
+            return True
     
-
-
+    calculated[amount] = False
+    return False
 
 
 print(sum_possible(4, [1, 2, 3,])) # -> True, 4 + 4
+
+
+#################################
+# brute force recursion O(n**a) #
+#################################
+
+#def sum_possible(amount, numbers):
+#    if amount < 0:
+#        return False
+#
+#    if amount == 0:
+#        return True
+#    for n in numbers:
+#        if sum_possible(amount-n, numbers):
+#            return True
+#    
+#    return False 
+
 
 ###############################
 # solution with n! complexity #
