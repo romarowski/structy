@@ -24,14 +24,18 @@ def gcdOfStrings(str1, str2):
 
     static_divisor = divisor 
     cur = len(divisor)
+
     while cur > 0:
         remainder = len(word) % len(divisor)
         if remainder==0:
             k = int((len(word)/len(divisor)))
             divisable = word == divisor * k
             if divisable:
+                # now check if this gcd also apply to the divisor
                 if len(static_divisor) % len(divisor) == 0:
-                    return divisor
+                    k = int(len(static_divisor)/len(divisor))
+                    if static_divisor == divisor*k:
+                        return divisor
         
         cur-=1
         divisor = divisor[:cur]
