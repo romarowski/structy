@@ -15,5 +15,35 @@ output = 5
 
 
 def shortest_trips(n):
-    pass
+    memo = {}
+    shortest = dp(n, memo)
+    return shortest
+
+
+def dp(n, memo):
+    
+    if n in memo:
+        return memo[n]
+
+    if n==0:
+        return 0 
+    
+    if n<0:
+        return float('inf')
+    
+    branch_3=1+dp(n-3, memo)
+    branch_2=1+dp(n-2, memo)
+    shortest = min(branch_3, branch_2)
+
+    memo[n] = shortest
+    return shortest
+    
+    
+
+
+if __name__ == '__main__':
+    n=2017
+    print(shortest_trips(n))
+    
+    
 

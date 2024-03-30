@@ -101,3 +101,23 @@ b --> c
 - Time: $O(E)$ where $E$ is the number of edges in the graph.
 - Space: $O(N)$ where $N$ is the number of nodes in the graph.
 
+
+
+### Cylcle finding problem
+
+**Statement**: Given a directed graph, find a cycle in the graph.
+
+**Approach**: The white-gray-black algorithm is a way to detect cycles in a graph. It uses a color system to keep track of the visited nodes. The colors are:
+- White: The node has not been visited.
+- Gray: The node is being visited.
+- Black: The node and all its neighbors have been visited.
+
+
+Use a **depth-first search** to traverse the graph. If a gray node is found, then a cycle has been found.
+
+
+
+**Complexity**:
+- Time: $O(E)$ where $E$ is the number of edges in the graph.
+- Space: $O(N)$ where $N$ is the number of nodes in the graph.
+

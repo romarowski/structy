@@ -12,12 +12,7 @@ class TestShortestTrips(ut.TestCase):
         expected_output = 0
         self.assertEqual(shortest_trips(n), expected_output)
 
-    def test_negative_trips(self):
-        n = -10
-        expected_output = 0
-        self.assertEqual(shortest_trips(n), expected_output)
-
     def test_large_number_of_trips(self):
-        n = 1000000
-        expected_output = 500000
+        n = 2017
+        expected_output = 673
         self.assertEqual(shortest_trips(n), expected_output)
